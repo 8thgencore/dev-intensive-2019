@@ -23,9 +23,8 @@ class ExampleUnitTest {
 
     @Test
     fun test_instance() {
-        val user1 = User("1")
-        val user2 = User("2", "John", "Wick")
-        print("$user1")
+        val user = User("2", "John", "Wick")
+        print("$user")
     }
 
     @Test
@@ -61,8 +60,6 @@ class ExampleUnitTest {
         val user = User.makeUser("Махеев Михаил")
         val newUser = user.copy(lastVisit = Date().add(-500, TimeUnits.SECOND))
         val userView = newUser.toUserView()
-
-        userView.printMe()
     }
 
     @Test
