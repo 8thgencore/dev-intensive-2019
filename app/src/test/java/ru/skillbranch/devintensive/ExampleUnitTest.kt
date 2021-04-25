@@ -44,14 +44,16 @@ class ExampleUnitTest {
     }
 
     @Test
-    fun test_copy(){
+    fun test_copy() {
         val user = User.makeUser("John Wick")
         val user2 = user.copy(lastVisit = Date().add(2, TimeUnits.SECOND))
 
-        println("""
+        println(
+            """
             ${user.lastVisit}
             ${user2.lastVisit?.format()}
-        """.trimIndent())
+        """.trimIndent()
+        )
     }
 
     @Test
@@ -69,7 +71,7 @@ class ExampleUnitTest {
         val txtMessage = BaseMessage.makeMessage(user, Chat("0"), payload = "any text", type = "text")
         val imageMessage = BaseMessage.makeMessage(user, Chat("0"), payload = "any image", type = "image")
 
-        when(txtMessage) {
+        when (txtMessage) {
             is TextMessage -> println("this is text message")
             is ImageMessage -> println("this is image message")
         }
