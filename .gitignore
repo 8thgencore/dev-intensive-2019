@@ -1,12 +1,4 @@
 # Built application files
-build/
-libs/
-.idea/
-*.iml
-src/test/
-src/androidTest
-
-# Built application files
 /*/build/
 
 # Crashlytics configuations
