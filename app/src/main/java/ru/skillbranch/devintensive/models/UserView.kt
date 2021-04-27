@@ -1,11 +1,10 @@
 package ru.skillbranch.devintensive.models
 
-class UserView(
-    var id : String,
+class UserView (
+    val id : String,
     var fullName : String,
     var nickName : String,
     var avatar : String?,
     var status: String = "offline",
-    var initials: String?
+    val initials: String?
 )
-
