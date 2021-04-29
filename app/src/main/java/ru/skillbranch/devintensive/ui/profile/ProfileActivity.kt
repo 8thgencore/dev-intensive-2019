@@ -26,8 +26,8 @@ class ProfileActivity : AppCompatActivity() {
     }
 
     private lateinit var viewModel: ProfileViewModel
-    var isEditMode = false
-    lateinit var viewFields: Map<String, TextView>
+    private var isEditMode = false
+    private lateinit var viewFields: Map<String, TextView>
     private var userInitials: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -36,6 +36,16 @@ class ProfileActivity : AppCompatActivity() {
         setContentView(R.layout.activity_profile)
         initViews(savedInstanceState)
         initViewModel()
+    }
+
+    //    override fun onSaveInstanceState(outState: Bundle, outPersistentState: PersistableBundle) {
+//        super.onSaveInstanceState(outState, outPersistentState)
+//        outState.putBoolean(IS_EDIT_MODE, isEditMode)
+//    }
+
+    override fun onSaveInstanceState(outState: Bundle?) {
+        super.onSaveInstanceState(outState)
+        outState?.putBoolean(IS_EDIT_MODE, isEditMode)
     }
 
     private fun initViewModel() {
@@ -172,16 +182,4 @@ class ProfileActivity : AppCompatActivity() {
             .setTextColor(Color.WHITE)
             .build()
     }
-
-    override fun onSaveInstanceState(outState: Bundle, outPersistentState: PersistableBundle) {
-        super.onSaveInstanceState(outState, outPersistentState)
-        outState.putBoolean(IS_EDIT_MODE, isEditMode)
-    }
-
-//    override fun onSaveInstanceState(outState: Bundle?) {
-//        super.onSaveInstanceState(outState)
-//        outState?.putString("STATUS", benderObj.status.name)
-//        outState?.putString("QUESTION", benderObj.question.name)
-//    }
-
 }
